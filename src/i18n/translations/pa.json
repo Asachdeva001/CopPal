@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "ਸਵਾਗਤ ਹੈ",
+    "appName": "ਕੌਪਲ",
+    "subtitle": "ਤੁਹਾਡਾ ਕਾਨੂੰਨੀ ਸਹਾਇਕ"
+  },
+  "quickAccess": {
+    "title": "ਤੇਜ਼ ਪਹੁੰਚ",
+    "chat": "ਚੈਟ",
+    "ipcSearch": "ਆਈਪੀਸੀ ਖੋਜ",
+    "crpcSearch": "ਸੀਆਰਪੀਸੀ ਖੋਜ",
+    "sop": "ਐਸਓਪੀ",
+    "savedItems": "ਸੁਰੱਖਿਅਤ ਆਈਟਮ"
+  },
+  "recentActivities": {
+    "title": "ਹਾਲੀਆ ਗਤੀਵਿਧੀਆਂ",
+    "seeAll": "ਸਭ ਦੇਖੋ",
+    "noActivities": "ਕੋਈ ਹਾਲੀਆ ਗਤੀਵਿਧੀਆਂ ਨਹੀਂ",
+    "empty": {
+      "title": "ਕੋਈ ਹਾਲੀਆ ਗਤੀਵਿਧੀਆਂ ਨਹੀਂ",
+      "subtitle": "ਤੁਹਾਡੀਆਂ ਹਾਲੀਆ ਖੋਜਾਂ ਅਤੇ ਇੰਟਰੈਕਸ਼ਨ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ"
+    },
+    "types": {
+      "search": "ਖੋਜ",
+      "chat": "ਚੈਟ",
+      "sop": "ਐਸਓਪੀ ਦੇਖੋ",
+      "saved": "ਸੁਰੱਖਿਅਤ ਆਈਟਮ"
+    },
+    "timeAgo": {
+      "justNow": "ਹੁਣੇ",
+      "minutesAgo": "{{count}} ਮਿੰਟ ਪਹਿਲਾਂ",
+      "hoursAgo": "{{count}} ਘੰਟੇ ਪਹਿਲਾਂ",
+      "daysAgo": "{{count}} ਦਿਨ ਪਹਿਲਾਂ"
+    }
+  },
+  "settings": {
+    "title": "ਸੈਟਿੰਗਾਂ",
+    "language": "ਭਾਸ਼ਾ",
+    "theme": "ਥੀਮ",
+    "darkMode": "ਡਾਰਕ ਮੋਡ",
+    "systemTheme": "ਸਿਸਟਮ ਥੀਮ ਵਰਤੋਂ",
+    "notifications": "ਸੂਚਨਾਵਾਂ",
+    "pushNotifications": "ਪੁਸ਼ ਨੋਟੀਫਿਕੇਸ਼ਨ",
+    "about": "ਬਾਰੇ",
+    "logout": "ਲੌਗਆਉਟ"
+  },
+  "languages": {
+    "english": "ਅੰਗਰੇਜ਼ੀ",
+    "hindi": "ਹਿੰਦੀ",
+    "marathi": "ਮਰਾਠੀ",
+    "gujarati": "ਗੁਜਰਾਤੀ",
+    "punjabi": "ਪੰਜਾਬੀ"
+  }
+} 

@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "Welcome to",
+    "appName": "CopPal",
+    "subtitle": "Your Legal Assistant"
+  },
+  "quickAccess": {
+    "title": "Quick Access",
+    "chat": "Chat",
+    "ipcSearch": "IPC Search",
+    "crpcSearch": "CRPC Search",
+    "sop": "SOP",
+    "savedItems": "Saved Items"
+  },
+  "recentActivities": {
+    "title": "Recent Activities",
+    "seeAll": "See All",
+    "noActivities": "No recent activities",
+    "empty": {
+      "title": "No Recent Activities",
+      "subtitle": "Your recent searches and interactions will appear here"
+    },
+    "types": {
+      "search": "Search",
+      "chat": "Chat",
+      "sop": "SOP View",
+      "saved": "Saved Item"
+    },
+    "timeAgo": {
+      "justNow": "Just now",
+      "minutesAgo": "{{count}} minutes ago",
+      "hoursAgo": "{{count}} hours ago",
+      "daysAgo": "{{count}} days ago"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "darkMode": "Dark Mode",
+    "systemTheme": "Use System Theme",
+    "notifications": "Notifications",
+    "pushNotifications": "Push Notifications",
+    "about": "About",
+    "logout": "Logout"
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "Hindi",
+    "marathi": "Marathi",
+    "gujarati": "Gujarati",
+    "punjabi": "Punjabi"
+  }
+} 

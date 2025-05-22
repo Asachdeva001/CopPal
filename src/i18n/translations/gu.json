@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "સ્વાગત છે",
+    "appName": "કોપલ",
+    "subtitle": "તમારો કાનૂની સહાયક"
+  },
+  "quickAccess": {
+    "title": "ઝડપી ઍક્સેસ",
+    "chat": "ચેટ",
+    "ipcSearch": "આઇપીસી શોધ",
+    "crpcSearch": "સીઆરપીસી શોધ",
+    "sop": "એસઓપી",
+    "savedItems": "સાચવેલા આઇટમ્સ"
+  },
+  "recentActivities": {
+    "title": "તાજેતરની પ્રવૃત્તિઓ",
+    "seeAll": "બધા જુઓ",
+    "noActivities": "કોઈ તાજેતરની પ્રવૃત્તિઓ નથી",
+    "empty": {
+      "title": "કોઈ તાજેતરની પ્રવૃત્તિઓ નથી",
+      "subtitle": "તમારી તાજેતરની શોધ અને ક્રિયાપ્રતિક્રિયાઓ અહીં દેખાશે"
+    },
+    "types": {
+      "search": "શોધ",
+      "chat": "ચેટ",
+      "sop": "એસઓપી જુઓ",
+      "saved": "સાચવેલો આઇટમ"
+    },
+    "timeAgo": {
+      "justNow": "હમણાં જ",
+      "minutesAgo": "{{count}} મિનિટ પહેલા",
+      "hoursAgo": "{{count}} કલાક પહેલા",
+      "daysAgo": "{{count}} દિવસ પહેલા"
+    }
+  },
+  "settings": {
+    "title": "સેટિંગ્સ",
+    "language": "ભાષા",
+    "theme": "થીમ",
+    "darkMode": "ડાર્ક મોડ",
+    "systemTheme": "સિસ્ટમ થીમ વાપરો",
+    "notifications": "સૂચનાઓ",
+    "pushNotifications": "પુશ નોટિફિકેશન",
+    "about": "વિશે",
+    "logout": "લોગઆઉટ"
+  },
+  "languages": {
+    "english": "અંગ્રેજી",
+    "hindi": "હિન્દી",
+    "marathi": "મરાઠી",
+    "gujarati": "ગુજરાતી",
+    "punjabi": "પંજાબી"
+  }
+} 

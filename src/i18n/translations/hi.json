@@ -1,0 +1,54 @@
+{
+  "welcome": {
+    "title": "स्वागत है",
+    "appName": "कॉपल",
+    "subtitle": "आपका कानूनी सहायक"
+  },
+  "quickAccess": {
+    "title": "त्वरित पहुंच",
+    "chat": "चैट",
+    "ipcSearch": "आईपीसी खोज",
+    "crpcSearch": "सीआरपीसी खोज",
+    "sop": "एसओपी",
+    "savedItems": "सहेजे गए आइटम"
+  },
+  "recentActivities": {
+    "title": "हाल की गतिविधियां",
+    "seeAll": "सभी देखें",
+    "noActivities": "कोई हाल की गतिविधियां नहीं",
+    "empty": {
+      "title": "कोई हाल की गतिविधियां नहीं",
+      "subtitle": "आपकी हाल की खोज और इंटरैक्शन यहां दिखाई देंगे"
+    },
+    "types": {
+      "search": "खोज",
+      "chat": "चैट",
+      "sop": "एसओपी देखें",
+      "saved": "सहेजा गया आइटम"
+    },
+    "timeAgo": {
+      "justNow": "अभी",
+      "minutesAgo": "{{count}} मिनट पहले",
+      "hoursAgo": "{{count}} घंटे पहले",
+      "daysAgo": "{{count}} दिन पहले"
+    }
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "language": "भाषा",
+    "theme": "थीम",
+    "darkMode": "डार्क मोड",
+    "systemTheme": "सिस्टम थीम का उपयोग करें",
+    "notifications": "सूचनाएं",
+    "pushNotifications": "पुश नोटिफिकेशन",
+    "about": "जानकारी",
+    "logout": "लॉगआउट"
+  },
+  "languages": {
+    "english": "अंग्रेज़ी",
+    "hindi": "हिंदी",
+    "marathi": "मराठी",
+    "gujarati": "गुजराती",
+    "punjabi": "पंजाबी"
+  }
+} 
