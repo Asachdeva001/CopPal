@@ -4,73 +4,53 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Platform,
+  Keyboard,
 } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { useTheme } from '../contexts/ThemeContext';
+import VoiceInput from './VoiceInput';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
-  onVoiceInput: () => void;
-  onLanguageToggle: () => void;
-  currentLanguage: 'en' | 'hi';
 }
 
-const ChatInput: React.FC<ChatInputProps> = ({
-  onSend,
-  onVoiceInput,
-  onLanguageToggle,
-  currentLanguage,
-}) => {
+const ChatInput: React.FC<ChatInputProps> = ({ onSend }) => {
   const [message, setMessage] = useState('');
+  const { colors } = useTheme();
 
   const handleSend = () => {
     if (message.trim()) {
       onSend(message.trim());
       setMessage('');
+      Keyboard.dismiss();
     }
   };
 
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.languageButton}
-        onPress={onLanguageToggle}
-      >
-        <MaterialIcons
-          name="translate"
-          size={24}
-          color="#007AFF"
-        />
-      </TouchableOpacity>
+  const handleVoiceResult = (text: string) => {
+    setMessage(text);
+  };
 
+  return (
+    <View style={[styles.container, { backgroundColor: colors.card }]}>
       <TextInput
-        style={styles.input}
+        style={[styles.input, { color: colors.text, backgroundColor: colors.background }]}
+        placeholder="Type a message..."
+        placeholderTextColor={colors.text + '80'}
         value={message}
         onChangeText={setMessage}
-        placeholder="Type your message..."
-        placeholderTextColor="#999"
         multiline
+        maxLength={500}
       />
-
+      <VoiceInput onResult={handleVoiceResult} />
       <TouchableOpacity
-        style={styles.voiceButton}
-        onPress={onVoiceInput}
-      >
-        <MaterialIcons
-          name="mic"
-          size={24}
-          color="#007AFF"
-        />
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.sendButton}
+        style={[styles.sendButton, { backgroundColor: colors.primary }]}
         onPress={handleSend}
+        disabled={!message.trim()}
       >
-        <MaterialIcons
+        <Ionicons
           name="send"
-          size={24}
-          color="#007AFF"
+          size={20}
+          color={message.trim() ? 'white' : colors.text + '40'}
         />
       </TouchableOpacity>
     </View>
@@ -81,40 +61,26 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#fff',
+    padding: 8,
     borderTopWidth: 1,
-    borderTopColor: '#eee',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: -2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 3,
-      },
-    }),
+    borderTopColor: 'rgba(0,0,0,0.1)',
   },
   input: {
     flex: 1,
-    backgroundColor: '#f0f0f0',
-    borderRadius: 20,
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    marginHorizontal: 10,
+    minHeight: 40,
     maxHeight: 100,
+    borderRadius: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    marginRight: 8,
     fontSize: 16,
   },
-  languageButton: {
-    padding: 8,
-  },
-  voiceButton: {
-    padding: 8,
-  },
   sendButton: {
-    padding: 8,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

@@ -50,5 +50,24 @@
     "marathi": "Marathi",
     "gujarati": "Gujarati",
     "punjabi": "Punjabi"
+  },
+  "voice": {
+    "error": "Error with voice recognition",
+    "permission": {
+      "title": "Microphone Permission",
+      "message": "Please allow microphone access to use voice input",
+      "denied": "Microphone permission denied",
+      "grant": "Grant Permission"
+    },
+    "listening": "Listening...",
+    "tapToStart": "Tap to start recording",
+    "tapToStop": "Tap to stop recording"
+  },
+  "chat": {
+    "input": {
+      "placeholder": "Type a message...",
+      "voiceInput": "Voice Input",
+      "send": "Send"
+    }
   }
 } 

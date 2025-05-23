@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useColorScheme } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
 
 export const themeColors = {
@@ -36,31 +35,46 @@ interface ThemeContextType {
   setTheme: (theme: Theme) => void;
   isDark: boolean;
   colors: typeof themeColors.light;
-  useSystemTheme: boolean;
-  setUseSystemTheme: (use: boolean) => void;
 }
+
+const THEME_KEY = 'app_theme';
 
 const ThemeContext = createContext<ThemeContextType>({
   theme: 'light',
   setTheme: () => {},
   isDark: false,
   colors: themeColors.light,
-  useSystemTheme: true,
-  setUseSystemTheme: () => {},
 });
 
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const systemColorScheme = useColorScheme();
-  const [theme, setTheme] = useState<Theme>('light');
-  const [useSystemTheme, setUseSystemTheme] = useState(true);
+  const [theme, setThemeState] = useState<Theme>('light');
 
+  // Load saved theme preference
   useEffect(() => {
-    if (useSystemTheme && systemColorScheme) {
-      setTheme(systemColorScheme);
+    const loadThemePreference = async () => {
+      try {
+        const savedTheme = await SecureStore.getItemAsync(THEME_KEY);
+        if (savedTheme) {
+          setThemeState(savedTheme as Theme);
+        }
+      } catch (error) {
+        console.error('Error loading theme preference:', error);
+      }
+    };
+
+    loadThemePreference();
+  }, []);
+
+  const setTheme = async (newTheme: Theme) => {
+    try {
+      await SecureStore.setItemAsync(THEME_KEY, newTheme);
+      setThemeState(newTheme);
+    } catch (error) {
+      console.error('Error saving theme:', error);
     }
-  }, [systemColorScheme, useSystemTheme]);
+  };
 
   const isDark = theme === 'dark';
   const colors = isDark ? themeColors.dark : themeColors.light;
@@ -72,8 +86,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setTheme,
         isDark,
         colors,
-        useSystemTheme,
-        setUseSystemTheme,
       }}
     >
       {children}

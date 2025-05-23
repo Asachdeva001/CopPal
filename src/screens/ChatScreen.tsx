@@ -3,14 +3,13 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
-  TouchableOpacity,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme, themeColors } from '../contexts/ThemeContext';
+import ChatInput from '../components/ChatInput';
 
 interface Message {
   id: string;
@@ -21,31 +20,28 @@ interface Message {
 
 const ChatScreen: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [inputText, setInputText] = useState('');
   const { isDark } = useTheme();
   const colors = isDark ? themeColors.dark : themeColors.light;
 
-  const handleSend = () => {
-    if (inputText.trim()) {
-      const newMessage: Message = {
-        id: Date.now().toString(),
-        text: inputText.trim(),
-        isUser: true,
+  const handleSend = (text: string) => {
+    const newMessage: Message = {
+      id: Date.now().toString(),
+      text: text,
+      isUser: true,
+      timestamp: new Date(),
+    };
+    setMessages(prev => [...prev, newMessage]);
+    
+    // Simulate AI response
+    setTimeout(() => {
+      const aiResponse: Message = {
+        id: (Date.now() + 1).toString(),
+        text: "I'm your legal assistant. How can I help you today?",
+        isUser: false,
         timestamp: new Date(),
       };
-      setMessages(prev => [...prev, newMessage]);
-      setInputText('');
-      // Simulate AI response
-      setTimeout(() => {
-        const aiResponse: Message = {
-          id: (Date.now() + 1).toString(),
-          text: "I'm your legal assistant. How can I help you today?",
-          isUser: false,
-          timestamp: new Date(),
-        };
-        setMessages(prev => [...prev, aiResponse]);
-      }, 1000);
-    }
+      setMessages(prev => [...prev, aiResponse]);
+    }, 1000);
   };
 
   const renderMessage = (message: Message) => (
@@ -109,28 +105,7 @@ const ChatScreen: React.FC = () => {
         )}
       </ScrollView>
 
-      <View style={[styles.inputContainer, { backgroundColor: colors.card }]}>
-        <TextInput
-          style={[styles.input, { color: colors.text }]}
-          placeholder="Type your message..."
-          placeholderTextColor={colors.secondary}
-          value={inputText}
-          onChangeText={setInputText}
-          multiline
-        />
-        <TouchableOpacity
-          style={[
-            styles.sendButton,
-            {
-              backgroundColor: inputText.trim() ? colors.primary : colors.border,
-            },
-          ]}
-          onPress={handleSend}
-          disabled={!inputText.trim()}
-        >
-          <Ionicons name="send" size={20} color="#fff" />
-        </TouchableOpacity>
-      </View>
+      <ChatInput onSend={handleSend} />
     </KeyboardAvoidingView>
   );
 };
@@ -188,27 +163,6 @@ const styles = StyleSheet.create({
   timestamp: {
     fontSize: 12,
     alignSelf: 'flex-end',
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 8,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(0,0,0,0.1)',
-  },
-  input: {
-    flex: 1,
-    marginRight: 8,
-    padding: 8,
-    maxHeight: 100,
-    fontSize: 16,
-  },
-  sendButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

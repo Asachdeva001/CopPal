@@ -26,7 +26,7 @@ type SettingsScreenNavigationProp = NativeStackNavigationProp<RootStackParamList
 
 const SettingsScreen: React.FC = () => {
   const { logout } = useAuth();
-  const { isDark, theme, setTheme, useSystemTheme, setUseSystemTheme } = useTheme();
+  const { isDark, theme, setTheme } = useTheme();
   const colors = isDark ? themeColors.dark : themeColors.light;
   const navigation = useNavigation<SettingsScreenNavigationProp>();
   const { t, i18n } = useTranslation();
@@ -118,7 +118,6 @@ const SettingsScreen: React.FC = () => {
             <Switch
               value={isDark}
               onValueChange={() => setTheme(isDark ? 'light' : 'dark')}
-              disabled={useSystemTheme}
               trackColor={{ false: colors.border, true: colors.primary + '80' }}
               thumbColor={isDark ? colors.primary : colors.text}
             />
